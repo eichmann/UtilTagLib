@@ -1,1 +1,24 @@
 * text=auto !eol
+/.classpath -text
+/.project -text
+.settings/org.eclipse.jdt.core.prefs -text
+.settings/org.eclipse.wst.common.component -text
+.settings/org.eclipse.wst.common.project.facet.core.xml svneol=native#text/xml
+.settings/org.maven.ide.eclipse.prefs -text
+/pom.xml svneol=native#text/xml
+src/main/java/edu/uiowa/tagUtil/Obfuscator.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/README.txt svneol=native#text/plain
+src/main/java/edu/uiowa/tagUtil/RegexRewrite.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/referrer/InternalReferrer.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/referrer/LocalReferrer.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/referrer/Referrer.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/referrer/RemoteReferrer.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/request/ApplicationPath.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/request/ApplicationRoot.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/request/RequestingHost.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/userAgent/BrowserUserAgent.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/userAgent/CrawlerUserAgent.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/userAgent/UserAgent.java svneol=native#text/x-java-source
+src/main/resources/META-INF/taglib.tld -text svneol=unset#text/xml
+src/test/java/edu/uiowa/tagUtil/README.txt svneol=native#text/plain
+src/test/resources/README.txt svneol=native#text/plain

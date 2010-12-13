@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>2.1</tlib-version>
+	<short-name>UtilityTags</short-name>
+	<uri>http://icts.uiowa.edu/tagUtil</uri>
+
+	<tag>
+		<name>requestingHost</name>
+		<tag-class>edu.uiowa.tagUtil.request.RequestingHost</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>applicationPath</name>
+		<tag-class>edu.uiowa.tagUtil.request.ApplicationPath</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>applicationRoot</name>
+		<tag-class>edu.uiowa.tagUtil.request.ApplicationRoot</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>referrer</name>
+		<tag-class>edu.uiowa.tagUtil.referrer.Referrer</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>internalReferrer</name>
+		<tag-class>edu.uiowa.tagUtil.referrer.InternalReferrer</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>localReferrer</name>
+		<tag-class>edu.uiowa.tagUtil.referrer.LocalReferrer</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>remoteReferrer</name>
+		<tag-class>edu.uiowa.tagUtil.referrer.RemoteReferrer</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>userAgent</name>
+		<tag-class>edu.uiowa.tagUtil.userAgent.UserAgent</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>crawlerUserAgent</name>
+		<tag-class>edu.uiowa.tagUtil.userAgent.CrawlerUserAgent</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>browserUserAgent</name>
+		<tag-class>edu.uiowa.tagUtil.userAgent.BrowserUserAgent</tag-class>
+		<body-content>JSP</body-content>
+
+	</tag>
+
+	<tag>
+		<name>regexRewrite</name>
+		<tag-class>edu.uiowa.tagUtil.RegexRewrite</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>source</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>target</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<function>
+		<name>obfuscateID</name>
+		<function-class>edu.uiowa.tagUtil.Obfuscator</function-class>
+		<function-signature>java.lang.Integer obfuscateID(java.lang.Integer)</function-signature>
+	</function>
+
+	<function>
+		<name>deobfuscateID</name>
+		<function-class>edu.uiowa.tagUtil.Obfuscator</function-class>
+		<function-signature>java.lang.Integer deobfuscateID(java.lang.Integer)</function-signature>
+	</function>
+
+</taglib>
