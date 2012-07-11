@@ -39,42 +39,36 @@
 		<name>internalReferrer</name>
 		<tag-class>edu.uiowa.tagUtil.referrer.InternalReferrer</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
 		<name>localReferrer</name>
 		<tag-class>edu.uiowa.tagUtil.referrer.LocalReferrer</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
 		<name>remoteReferrer</name>
 		<tag-class>edu.uiowa.tagUtil.referrer.RemoteReferrer</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
 		<name>userAgent</name>
 		<tag-class>edu.uiowa.tagUtil.userAgent.UserAgent</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
 		<name>crawlerUserAgent</name>
 		<tag-class>edu.uiowa.tagUtil.userAgent.CrawlerUserAgent</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
 		<name>browserUserAgent</name>
 		<tag-class>edu.uiowa.tagUtil.userAgent.BrowserUserAgent</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
@@ -105,6 +99,30 @@
 		<name>deobfuscateID</name>
 		<function-class>edu.uiowa.tagUtil.Obfuscator</function-class>
 		<function-signature>java.lang.Integer deobfuscateID(java.lang.Integer)</function-signature>
+	</function>
+
+	<function>
+		<name>removeHTML</name>
+		<function-class>edu.uiowa.tagUtil.Functions</function-class>
+		<function-signature>java.lang.String removeHTML (java.lang.String)</function-signature>
+	</function>
+
+	<function>
+		<name>removeHTMLandTrim</name>
+		<function-class>edu.uiowa.tagUtil.Functions</function-class>
+		<function-signature>java.lang.String removeHTMLandTrim (java.lang.String, java.lang.Integer)</function-signature>
+	</function>
+
+	<function>
+		<name>equals</name>
+		<function-class>edu.uiowa.tagUtil.Functions</function-class>
+		<function-signature>java.lang.Boolean equals(java.lang.String, java.lang.String)</function-signature>
+	</function>
+	
+	<function>
+		<name>split</name>
+		<function-class>edu.uiowa.tagUtil.Functions</function-class>
+		<function-signature>java.lang.String[] split (java.lang.String, java.lang.String)</function-signature>
 	</function>
 
 </taglib>
