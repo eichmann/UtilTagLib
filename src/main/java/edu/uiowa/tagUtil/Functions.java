@@ -10,6 +10,10 @@ import org.jsoup.Jsoup;
  */
 public class Functions {
 	
+	public static String replaceIgnoreCase(String string, String replace, String with){
+		return string.replaceAll("(?i)"+replace, with);
+	}
+	
 	/**
 	 * @param html - string containing html 
 	 * @return
