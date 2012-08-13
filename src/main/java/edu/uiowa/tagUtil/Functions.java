@@ -9,6 +9,33 @@ import org.jsoup.Jsoup;
  * $Date$: Date of last commit
  */
 public class Functions {
+
+	public static void main(String[] args){
+		System.out.println(capitalize("hello world."));
+	}
+	
+	/**
+	 * @param string - string to capitalize first letter of each word and make others lower case
+	 * @return
+	 */
+	public static String capitalize(String string){
+		String newString = "";
+		if(string != null){
+			string = string.trim();
+			char[] arr = string.toCharArray();
+			for(int i=0;i<arr.length;i++){
+				if(i == 0 || (i > 0  && ' ' == arr[i-1])){
+					newString += String.valueOf(arr[i]).toUpperCase(); 
+				}else{
+					newString += String.valueOf(arr[i]).toLowerCase(); 	
+				}
+				
+			}
+		}else{
+			return null;
+		}
+		return newString;
+	}
 	
 	public static String replaceIgnoreCase(String string, String replace, String with){
 		return string.replaceAll("(?i)"+replace, with);

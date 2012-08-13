@@ -130,5 +130,11 @@
 		<function-class>edu.uiowa.tagUtil.Functions</function-class>
 		<function-signature>java.lang.String replaceIgnoreCase (java.lang.String, java.lang.String, java.lang.String)</function-signature>
 	</function>
+	
+	<function>
+		<name>capitalize</name>
+		<function-class>edu.uiowa.tagUtil.Functions</function-class>
+		<function-signature>java.lang.String capitalize (java.lang.String)</function-signature>
+	</function>
 
 </taglib>
