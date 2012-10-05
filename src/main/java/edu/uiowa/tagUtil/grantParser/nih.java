@@ -16,6 +16,8 @@ public class nih {
 	private static Pattern awardPattern = Pattern.compile("([1-9]?)[\\- ]*([A-Z][0-9][0-9])?[\\- ]*([A-Z][A-Z])[\\- ]*([0-9]+)[\\- ]*([0-9]*)[\\- ]*([A][0-9])?[\\- ]*([S][0-9])?");
 	
 	private static String match(String source, int position) {
+		if (source == null)
+			return null;
 		Matcher theMatcher = awardPattern.matcher(source);
 		if (theMatcher.matches())
 			return theMatcher.group(position);
@@ -24,7 +26,11 @@ public class nih {
 	}
 	
 	public static Integer applicationType(String grant) {
-		return new Integer(match(grant, 1));
+		String type = match(grant, 1);
+		if (type == null || type.length() != 1)
+			return null;
+		else
+			return new Integer(type);
 	}
 
 	public static String activityCode(String grant) {
@@ -36,11 +42,19 @@ public class nih {
 	}
 
 	public static Integer serialNumber(String grant) {
-		return new Integer(match(grant, 4));
+		String serialNumber = match(grant, 4);
+		if (serialNumber == null || serialNumber.length() > 6)
+			return null;
+		else
+			return new Integer(serialNumber);
 	}
 
 	public static Integer year(String grant) {
-		return new Integer(match(grant, 5));
+		String year = match(grant, 5);
+		if (year == null || year.length() != 2)
+			return null;
+		else
+			return new Integer(year);
 	}
 
 	public static String amendment(String grant) {
