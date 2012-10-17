@@ -19,6 +19,9 @@ public class DateConversion {
 	}
 	
 	public static Timestamp firefox_timestamp(String timestamp) {
+		if ("0".equals(timestamp.trim()))
+			return null;
+		
 		return new Timestamp(Long.parseLong(timestamp) / 1000);
 	}
 
