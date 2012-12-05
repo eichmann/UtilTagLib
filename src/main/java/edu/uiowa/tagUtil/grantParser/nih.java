@@ -482,10 +482,6 @@ public class nih {
 		System.out.println("\n\t\t*** nih predicates loaded! ***\n");
 	}
 	
-	/* Application type Ð Activity code Ð Institute Ð Serial no. Ð Suffix (Year Ð Amendment -Supplement)
-	 * 1 R01 AI 83723 01 A1 S1 
-	 */
-	
 	private static Pattern awardPattern = Pattern.compile("([1-9]?)[\\- ]*([A-Z0-9][A-Z0-9][A-Z0-9])?[\\- ]*([A-Z][A-Z])[\\- ]*([0-9]+)[\\- ]*([0-9]*)[\\- ]*([A][0-9])?[\\- ]*([S][0-9])?");
 	
 	private static String match(String source, int position) {
