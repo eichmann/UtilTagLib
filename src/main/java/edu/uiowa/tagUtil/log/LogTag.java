@@ -15,17 +15,18 @@ public class LogTag extends BodyTagSupport {
 	private static final String ERROR = "ERROR";
 	
 	private String page;
+	private String line;
 	private String level;
 	private String message;
 	
 	public int doStartTag(){
 		
 		if( DEBUG.equalsIgnoreCase(level) ){
-			log.debug( page + " - " + message );
+			log.debug( page + ":" + line + " - " + message );
 		} else if( INFO.equalsIgnoreCase(level) ) {
-			log.info( page + " - " + message );
+			log.info( page + ":" + line + " - " + message );
 		} else if( ERROR.equalsIgnoreCase(level) ){
-			log.error( page + " - " + message );
+			log.error( page + ":" + line + " - " + message );
 		}
 		
 		return EVAL_PAGE;
@@ -53,5 +54,13 @@ public class LogTag extends BodyTagSupport {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getLine() {
+		return line;
+	}
+
+	public void setLine(String line) {
+		this.line = line;
 	}
 }
