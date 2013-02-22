@@ -8,24 +8,45 @@
 	<uri>http://icts.uiowa.edu/tagUtil</uri>
 
 	<tag>
+		<name>Log</name>
+		<tag-class>edu.uiowa.tagUtil.log.LogTag</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>page</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>level</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>message</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
 		<name>requestingHost</name>
 		<tag-class>edu.uiowa.tagUtil.request.RequestingHost</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
 		<name>applicationPath</name>
 		<tag-class>edu.uiowa.tagUtil.request.ApplicationPath</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
 		<name>applicationRoot</name>
 		<tag-class>edu.uiowa.tagUtil.request.ApplicationRoot</tag-class>
 		<body-content>JSP</body-content>
-
 	</tag>
 
 	<tag>
@@ -136,5 +157,4 @@
 		<function-class>edu.uiowa.tagUtil.Functions</function-class>
 		<function-signature>java.lang.String capitalize (java.lang.String)</function-signature>
 	</function>
-
 </taglib>
