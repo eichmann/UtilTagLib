@@ -21,6 +21,7 @@ src/main/java/edu/uiowa/tagUtil/referrer/RemoteReferrer.java svneol=native#text/
 src/main/java/edu/uiowa/tagUtil/request/ApplicationPath.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/request/ApplicationRoot.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/request/RequestingHost.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/requestURI/RequestURI.java -text svneol=unset#text/plain
 src/main/java/edu/uiowa/tagUtil/userAgent/BrowserUserAgent.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/userAgent/CrawlerUserAgent.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/userAgent/UserAgent.java svneol=native#text/x-java-source

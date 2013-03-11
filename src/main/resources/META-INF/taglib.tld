@@ -8,6 +8,12 @@
 	<uri>http://icts.uiowa.edu/tagUtil</uri>
 
 	<tag>
+		<name>RequestURI</name>
+		<tag-class>edu.uiowa.tagUtil.requestURI.RequestURI</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+
+	<tag>
 		<name>Log</name>
 		<tag-class>edu.uiowa.tagUtil.log.LogTag</tag-class>
 		<body-content>JSP</body-content>
