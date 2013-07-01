@@ -122,6 +122,12 @@
 		</attribute>
 	</tag>
 
+	<tag>
+		<name>unicode2html</name>
+		<tag-class>edu.uiowa.tagUtil.html.Unicode2html</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+
 	<function>
 		<name>obfuscateID</name>
 		<function-class>edu.uiowa.tagUtil.Obfuscator</function-class>
