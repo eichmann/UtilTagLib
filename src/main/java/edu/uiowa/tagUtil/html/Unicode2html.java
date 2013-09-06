@@ -7,15 +7,11 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import edu.uiowa.HTMLexer.HTMLEntities;
-
 public class Unicode2html extends BodyTagSupport {
 	/**
 	 * Comment for <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = 1L;
-
-	private static HTMLEntities theEntities = new HTMLEntities();
 
 	public void setBodyContent(BodyContent bc) {
 		super.setBodyContent(bc);
