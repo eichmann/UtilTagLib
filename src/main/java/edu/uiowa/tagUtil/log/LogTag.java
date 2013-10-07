@@ -16,7 +16,7 @@ public class LogTag extends BodyTagSupport {
 	
 	private String page;
 	private String line;
-	private String level;
+	private String level = DEBUG;
 	private String message;
 	
 	public int doStartTag(){
@@ -29,9 +29,19 @@ public class LogTag extends BodyTagSupport {
 			log.error( page + ":" + line + " - " + message );
 		}
 		
+		clear();
+		
 		return EVAL_PAGE;
 	}
 	
+	// reset to defaults
+	private void clear() {
+		this.level = DEBUG;
+		this.line = null;
+		this.message = null;
+		this.page = null;
+	}
+
 	public String getPage() {
 		return page;
 	}
