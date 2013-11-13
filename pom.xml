@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.uiowa.icts.taglib</groupId>
 	<artifactId>UtilTagLib</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 	<name>UtilTagLib</name>
 
 	<url>http://www.icts.uiowa.edu/confluence/display/apps/UtilTagLib</url>
 	<scm>
-		<connection>scm:svn:https://srcvault.icts.uiowa.edu/repos/TagLibs/UtilTagLib/trunk</connection>
-		<developerConnection>scm:svn:https://srcvault.icts.uiowa.edu/repos/TagLibs/UtilTagLib/trunk</developerConnection>
-		<url>https://srcvault.icts.uiowa.edu/repos/TagLibs/UtilTagLib</url>
+		<connection>scm:svn:https://srcvault.icts.uiowa.edu/repos/TagLibs/UtilTagLib/tags/UtilTagLib-1.0.2</connection>
+		<developerConnection>scm:svn:https://srcvault.icts.uiowa.edu/repos/TagLibs/UtilTagLib/tags/UtilTagLib-1.0.2</developerConnection>
+		<url>scm:svn:https://srcvault.icts.uiowa.edu/repos/TagLibs/UtilTagLib/tags/UtilTagLib-1.0.2</url>
 	</scm>
 	<distributionManagement>
 		<repository>
