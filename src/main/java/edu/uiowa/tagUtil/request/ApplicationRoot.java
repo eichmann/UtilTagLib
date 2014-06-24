@@ -13,17 +13,27 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 @SuppressWarnings("serial")
 public class ApplicationRoot extends TagSupport {
+	public static final Log log = LogFactory.getLog(ApplicationRoot.class);
+	
     String theURI = null;
     String applicationRoot = null;
 
     public int doStartTag() throws JspTagException {
         // Note the misspelling of the actual header string value...
         theURI = ((HttpServletRequest)pageContext.getRequest()).getRequestURI();
-        applicationRoot = theURI.substring(0, theURI.indexOf('/', 1));
+        String thePath = ((HttpServletRequest)pageContext.getRequest()).getServletPath();
+        if (theURI.equals(thePath) || theURI.length() < 2)
+        	applicationRoot = "";
+        else
+        	applicationRoot = theURI.substring(0, theURI.indexOf('/', 1));
 
-        //System.out.println("theURI: " + theURI + "\tapplicationRoot:" + applicationRoot + "\t" + pageContext.getRequest().getServerName() + "\t" + pageContext.getRequest().getServerPort());
+        log.trace("theURI: " + theURI + "\tapplicationRoot:" + applicationRoot + "\t" + pageContext.getRequest().getServerName() + "\t" + pageContext.getRequest().getServerPort());
+        log.trace("servletPath: " + thePath);
         try {
             pageContext.getOut().print(applicationRoot);
         } catch (IOException e) {
