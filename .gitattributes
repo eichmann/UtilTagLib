@@ -1,6 +1,7 @@
 * text=auto !eol
 /.classpath -text
 /.project -text
+.settings/org.eclipse.core.resources.prefs -text
 .settings/org.eclipse.jdt.core.prefs -text
 .settings/org.eclipse.wst.common.component -text
 .settings/org.eclipse.wst.common.project.facet.core.xml svneol=native#text/xml
