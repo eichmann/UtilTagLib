@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class DateConversion {
+	@SuppressWarnings("deprecation")
 	static long timeOffset = (new Date("1 Jan 2001 00:00:00 GMT")).getTime();
 	
 	static {

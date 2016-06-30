@@ -18,6 +18,7 @@ public class Unicode2html extends BodyTagSupport {
 		// System.out.println("RegexRewrite source: '" + source + "'\ttarget: '" + target + "'");
 	}
 
+	@SuppressWarnings("unused")
 	public int doAfterBody() throws JspTagException {
 		try {
 			BodyContent bodyContent = super.getBodyContent();
