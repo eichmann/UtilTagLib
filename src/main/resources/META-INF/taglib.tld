@@ -61,6 +61,24 @@
 		<body-content>JSP</body-content>
 	</tag>
 
+    <tag>
+        <name>applicationName</name>
+        <tag-class>edu.uiowa.tagUtil.request.ApplicationName</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <name>propertyValue</name>
+        <tag-class>edu.uiowa.tagUtil.property.PropertyValue</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 	<tag>
 		<name>referrer</name>
 		<tag-class>edu.uiowa.tagUtil.referrer.Referrer</tag-class>
@@ -129,10 +147,16 @@
 	</tag>
 
 	<function>
-		<name>obfuscateID</name>
-		<function-class>edu.uiowa.tagUtil.Obfuscator</function-class>
-		<function-signature>java.lang.Integer obfuscateID(java.lang.Integer)</function-signature>
+		<name>propertyValue</name>
+		<function-class>edu.uiowa.tagUtil.property.PropertyValue</function-class>
+		<function-signature>java.lang.String getValue(java.lang.String)</function-signature>
 	</function>
+
+    <function>
+        <name>obfuscateID</name>
+        <function-class>edu.uiowa.tagUtil.Obfuscator</function-class>
+        <function-signature>java.lang.Integer obfuscateID(java.lang.Integer)</function-signature>
+    </function>
 
 	<function>
 		<name>deobfuscateID</name>

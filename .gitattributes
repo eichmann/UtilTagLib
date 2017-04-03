@@ -20,10 +20,13 @@ src/main/java/edu/uiowa/tagUtil/filter/WhiteSpaceFilter.java -text
 src/main/java/edu/uiowa/tagUtil/grantParser/nih.java -text
 src/main/java/edu/uiowa/tagUtil/html/Unicode2html.java -text
 src/main/java/edu/uiowa/tagUtil/log/LogTag.java -text svneol=unset#text/plain
+src/main/java/edu/uiowa/tagUtil/property/PropertyLoader.java -text
+src/main/java/edu/uiowa/tagUtil/property/PropertyValue.java -text
 src/main/java/edu/uiowa/tagUtil/referrer/InternalReferrer.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/referrer/LocalReferrer.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/referrer/Referrer.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/referrer/RemoteReferrer.java svneol=native#text/x-java-source
+src/main/java/edu/uiowa/tagUtil/request/ApplicationName.java -text
 src/main/java/edu/uiowa/tagUtil/request/ApplicationPath.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/request/ApplicationRoot.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/request/RequestingHost.java svneol=native#text/x-java-source
