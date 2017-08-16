@@ -22,7 +22,7 @@ public class PropertyValue extends TagSupport {
 	public static final Log log = LogFactory.getLog(PropertyValue.class);
 	
     String theURI = null;
-    String applicationName = null;
+    String propertyFile = null;
     String name = null;
     String propertyValue = null;
     Properties properties = null;
@@ -47,17 +47,23 @@ public class PropertyValue extends TagSupport {
     }
     
     void initialize() {
-        // Note the misspelling of the actual header string value...
-        theURI = ((HttpServletRequest)pageContext.getRequest()).getRequestURI();
-        String thePath = ((HttpServletRequest)pageContext.getRequest()).getServletPath();
-        if (theURI.equals(thePath) || theURI.length() < 2)
-            applicationName = "";
-        else
-            applicationName = theURI.substring(1, theURI.indexOf('/', 1));
+	if (propertyFile != null) {
+	    if (!propertyFile.endsWith(".properties"))
+		propertyFile += ".properties";
+	    log.trace("propertyFile: " + propertyFile);
+	} else {
+	    // Note the misspelling of the actual header string value...
+	    theURI = ((HttpServletRequest) pageContext.getRequest()).getRequestURI();
+	    String thePath = ((HttpServletRequest) pageContext.getRequest()).getServletPath();
+	    if (theURI.equals(thePath) || theURI.length() < 2)
+		propertyFile = "";
+	    else
+		propertyFile = theURI.substring(1, theURI.indexOf('/', 1)) + ".properties";
+	    log.trace("servletPath: " + thePath);
+	}
         
-        properties = PropertyLoader.loadProperties(applicationName + ".properties");
+        properties = PropertyLoader.loadProperties(propertyFile);
         log.trace("theURI: " + theURI + "\tpropertyValue:" + propertyValue + "\t" + pageContext.getRequest().getServerName() + "\t" + pageContext.getRequest().getServerPort());
-        log.trace("servletPath: " + thePath);
     }
     
     public String getTheURI() {
@@ -88,6 +94,14 @@ public class PropertyValue extends TagSupport {
     private void clearServiceState() {
         theURI = null;
         propertyValue = null;
+    }
+
+    public String getPropertyFile() {
+        return propertyFile;
+    }
+
+    public void setPropertyFile(String propertyFile) {
+        this.propertyFile = propertyFile;
     }
 
 }
