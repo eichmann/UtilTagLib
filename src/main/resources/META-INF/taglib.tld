@@ -152,6 +152,12 @@
 		<body-content>JSP</body-content>
 	</tag>
 
+    <tag>
+        <name>markdown2html</name>
+        <tag-class>edu.uiowa.tagUtil.html.Markdown2html</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
 	<function>
 		<name>propertyValue</name>
 		<function-class>edu.uiowa.tagUtil.property.PropertyValue</function-class>
