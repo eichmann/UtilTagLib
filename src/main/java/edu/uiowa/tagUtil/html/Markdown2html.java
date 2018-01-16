@@ -25,7 +25,7 @@ public class Markdown2html extends BodyTagSupport {
 	    String bodyString = bodyContent.getString();
 	    JspWriter out = bodyContent.getEnclosingWriter();
 
-	    out.print(Processor.process(bodyString));
+	    out.print(Processor.process("[$PROFILE$]: extended\n"+bodyString, new GitDecorator()));
 
 	    bodyContent.clear(); // empty buffer for next evaluation
 	} catch (IOException e) {
