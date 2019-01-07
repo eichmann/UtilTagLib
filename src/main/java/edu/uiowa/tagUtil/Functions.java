@@ -1,6 +1,10 @@
 package edu.uiowa.tagUtil;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 
 /**
@@ -9,6 +13,7 @@ import org.jsoup.Jsoup;
  * $Date$: Date of last commit
  */
 public class Functions {
+    static Logger logger = Logger.getLogger(Functions.class);
 
 	public static void main( String[] args ) {
 		System.out.println( capitalize( "hello world." ) );
@@ -80,6 +85,21 @@ public class Functions {
 	 */
 	public static Boolean equals( String string_one, String string_two ) {
 		return StringUtils.equalsIgnoreCase( string_one, string_one );
+	}
+	
+	public static String regexMatch(String input, String patternString) {
+	    return regexMatch(input, patternString, 1);
+	}
+	
+	public static String regexMatch(String input, String patternString, int group) {
+	    logger.info("regexMatch: input: " + input + "\tpattern: " + patternString + "\tgroup: " + group);
+	    Pattern pattern = Pattern.compile(patternString);
+	    Matcher matcher = pattern.matcher(input);
+	    if (matcher.matches()) {
+		logger.info("\tmatch: " + matcher.group(group));
+		return matcher.group(group);
+	    }
+	    return null;
 	}
 
 }
