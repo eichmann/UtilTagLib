@@ -101,5 +101,9 @@ public class Functions {
 	    }
 	    return null;
 	}
+	
+	public static String removeCRs(String input) {
+	    return input.replaceAll("\\r", "");
+	}
 
 }

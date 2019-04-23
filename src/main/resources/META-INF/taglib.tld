@@ -223,4 +223,10 @@
         <function-class>edu.uiowa.tagUtil.Functions</function-class>
         <function-signature>java.lang.String regexMatch (java.lang.String, java.lang.String, java.lang.Integer)</function-signature>
     </function>
+    
+    <function>
+        <name>removeCRs</name>
+        <function-class>edu.uiowa.tagUtil.Functions</function-class>
+        <function-signature>java.lang.String removeCRs (java.lang.String)</function-signature>
+    </function>
 </taglib>
