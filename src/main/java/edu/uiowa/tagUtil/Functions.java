@@ -4,7 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
 
 /**
@@ -13,7 +14,7 @@ import org.jsoup.Jsoup;
  * $Date$: Date of last commit
  */
 public class Functions {
-    static Logger logger = Logger.getLogger(Functions.class);
+    static Logger logger = LogManager.getLogger(Functions.class);
 
 	public static void main( String[] args ) {
 		System.out.println( capitalize( "hello world." ) );
@@ -87,6 +88,10 @@ public class Functions {
 		return StringUtils.equalsIgnoreCase( string_one, string_one );
 	}
 	
+	public static Boolean regexMatches(String input, String patternString) {
+	    return input.matches(patternString);
+	}
+	    
 	public static String regexMatch(String input, String patternString) {
 	    return regexMatch(input, patternString, 1);
 	}
