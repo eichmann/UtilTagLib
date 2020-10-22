@@ -1,7 +1,6 @@
 package edu.uiowa.tagUtil.hashTag;
 
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.commons.logging.Log;
@@ -17,8 +16,9 @@ public class HashEntry extends TagSupport {
 
     public int doStartTag() throws JspException {
 	HashTag hashTag = (HashTag)findAncestorWithClass(this, HashTag.class);
+	log.debug("hashTag: " + hashTag);
+	log.debug("HashTag entry: " + key +  " : " + value);
 	hashTag.addEntry(key, value);
-	log.info("HashTag entry: " + key +  " : " + value);
 
 	return EVAL_PAGE;
     }

@@ -1,8 +1,5 @@
 package edu.uiowa.tagUtil.hashTag;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Hashtable;
 
 import javax.servlet.jsp.JspException;
@@ -16,18 +13,20 @@ import org.apache.commons.logging.LogFactory;
 public class HashTag extends TagSupport {
 
     private static final Log log = LogFactory.getLog(HashTag.class);
+    static HashTag currentHashTag = null;
 
-    public Boolean keyExists (String ID) throws JspTagException {
-	HashTag helper = new HashTag();
-	HashTag theCache = (HashTag)findAncestorWithClass(helper, HashTag.class);
-	return theCache.cache.containsKey(ID);
+    public static Boolean keyExists (String ID) throws JspTagException {
+	log.debug("containing tag: " + currentHashTag + " : " + ID);
+	return currentHashTag.cache.containsKey(ID);
     }
 
     String cacheName = null;
-    Hashtable<String, String> cache = new Hashtable<String, String>();
+    Hashtable<String, String> cache = null;
 
     public int doStartTag() throws JspException {
-	log.info("Hashtable initialized: " + cacheName);
+	currentHashTag = this;
+	cache = new Hashtable<String, String>();
+	log.debug("Hashtable initialized: " + cacheName);
 	pageContext.setAttribute(cacheName, cache);
 
 	return EVAL_PAGE;
@@ -47,10 +46,12 @@ public class HashTag extends TagSupport {
     }
     
     public void addEntry(String key, String value) {
+	log.debug("addEntry: " + cache + " : " + key + " : " + value);
 	cache.put(key, (value == null ? key : value));
     }
 
     private void clearServiceState () {
+	currentHashTag = null;
 	this.cacheName =  null;
 	this.cache = null;
     }
