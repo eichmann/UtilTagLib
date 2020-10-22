@@ -158,6 +158,42 @@
         <body-content>JSP</body-content>
     </tag>
 
+    <tag>
+        <name>hashTable</name>
+        <tag-class>edu.uiowa.tagUtil.hashTag.HashTag</tag-class>
+        <body-content>JSP</body-content>
+
+        <attribute>
+            <name>cacheName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>hashEntry</name>
+        <tag-class>edu.uiowa.tagUtil.hashTag.HashEntry</tag-class>
+        <body-content>JSP</body-content>
+
+        <attribute>
+            <name>key</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <function>
+        <name>keyExists</name>
+        <function-class>edu.uiowa.tagUtil.hashTag.HashTag</function-class>
+        <function-signature>java.lang.Boolean keyExists(java.lang.String)</function-signature>
+    </function>
+    
 	<function>
 		<name>propertyValue</name>
 		<function-class>edu.uiowa.tagUtil.property.PropertyValue</function-class>
