@@ -19,7 +19,9 @@ src/main/java/edu/uiowa/tagUtil/filter/BlankLineFilter.java -text
 src/main/java/edu/uiowa/tagUtil/filter/WhiteSpaceFilter.java -text
 src/main/java/edu/uiowa/tagUtil/grantParser/nih.java -text
 src/main/java/edu/uiowa/tagUtil/hashTag/HashEntry.java -text
+src/main/java/edu/uiowa/tagUtil/hashTag/HashSize.java -text
 src/main/java/edu/uiowa/tagUtil/hashTag/HashTag.java -text
+src/main/java/edu/uiowa/tagUtil/hashTag/HashValue.java -text
 src/main/java/edu/uiowa/tagUtil/html/GitDecorator.java -text
 src/main/java/edu/uiowa/tagUtil/html/Markdown2html.java -text
 src/main/java/edu/uiowa/tagUtil/html/Unicode2html.java -text

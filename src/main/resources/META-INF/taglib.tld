@@ -188,6 +188,24 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>hashValue</name>
+        <tag-class>edu.uiowa.tagUtil.hashTag.HashValue</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>key</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>hashSize</name>
+        <tag-class>edu.uiowa.tagUtil.hashTag.HashSize</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
     <function>
         <name>keyExists</name>
         <function-class>edu.uiowa.tagUtil.hashTag.HashTag</function-class>
