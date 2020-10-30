@@ -26,6 +26,7 @@ src/main/java/edu/uiowa/tagUtil/html/GitDecorator.java -text
 src/main/java/edu/uiowa/tagUtil/html/Markdown2html.java -text
 src/main/java/edu/uiowa/tagUtil/html/Unicode2html.java -text
 src/main/java/edu/uiowa/tagUtil/log/LogTag.java -text svneol=unset#text/plain
+src/main/java/edu/uiowa/tagUtil/property/LocalProperties.java -text
 src/main/java/edu/uiowa/tagUtil/property/PropertyLoader.java -text
 src/main/java/edu/uiowa/tagUtil/property/PropertyValue.java -text
 src/main/java/edu/uiowa/tagUtil/referrer/InternalReferrer.java svneol=native#text/x-java-source

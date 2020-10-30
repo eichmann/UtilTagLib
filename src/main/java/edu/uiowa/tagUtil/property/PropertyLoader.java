@@ -31,7 +31,7 @@ public abstract class PropertyLoader {
      * @throws IllegalArgumentException if the resource was not found and
      * THROW_ON_LOAD_FAILURE is true
      */
-    public static Properties loadProperties (String name, ClassLoader loader)
+    public static LocalProperties loadProperties (String name, ClassLoader loader)
     {
         if (name == null)
             throw new IllegalArgumentException ("null input: name");
@@ -42,7 +42,7 @@ public abstract class PropertyLoader {
         if (name.endsWith (SUFFIX))
             name = name.substring (0, name.length () - SUFFIX.length ());
         
-        Properties result = null;
+        LocalProperties result = null;
         
         InputStream in = null;
         try
@@ -56,7 +56,7 @@ public abstract class PropertyLoader {
                 final ResourceBundle rb = ResourceBundle.getBundle (name,
                     Locale.getDefault (), loader);
                 
-                result = new Properties ();
+                result = new LocalProperties ();
                 for (Enumeration<?> keys = rb.getKeys (); keys.hasMoreElements ();)
                 {
                     final String key = (String) keys.nextElement ();
@@ -76,7 +76,7 @@ public abstract class PropertyLoader {
                 in = loader.getResourceAsStream (name);
                 if (in != null)
                 {
-                    result = new Properties ();
+                    result = new LocalProperties ();
                     result.load (in); // Can throw IOException
                 }
             }
