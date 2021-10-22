@@ -17,6 +17,8 @@ public class HashTag extends TagSupport {
 
     public static Boolean keyExists (String ID) throws JspTagException {
 	log.debug("containing tag: " + currentHashTag + " : " + ID);
+	if (ID == null)
+		return false;
 	return currentHashTag.cache.containsKey(ID);
     }
 
