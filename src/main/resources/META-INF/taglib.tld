@@ -14,6 +14,30 @@
 	</tag>
 
 	<tag>
+		<name>CSV</name>
+		<tag-class>edu.uiowa.tagUtil.csv.CSVEmitter</tag-class>
+		<body-content>JSP</body-content>
+
+		<attribute>
+			<name>dataSource</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>schema</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>table</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
 		<name>Log</name>
 		<tag-class>edu.uiowa.tagUtil.log.LogTag</tag-class>
 		<body-content>JSP</body-content>

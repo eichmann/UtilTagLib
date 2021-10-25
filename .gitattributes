@@ -15,6 +15,7 @@ src/main/java/edu/uiowa/tagUtil/Obfuscator.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/README.txt svneol=native#text/plain
 src/main/java/edu/uiowa/tagUtil/RegexRewrite.java svneol=native#text/x-java-source
 src/main/java/edu/uiowa/tagUtil/browser/DateConversion.java -text
+src/main/java/edu/uiowa/tagUtil/csv/CSVEmitter.java -text
 src/main/java/edu/uiowa/tagUtil/filter/BlankLineFilter.java -text
 src/main/java/edu/uiowa/tagUtil/filter/WhiteSpaceFilter.java -text
 src/main/java/edu/uiowa/tagUtil/grantParser/nih.java -text
