@@ -18,6 +18,7 @@ src/main/java/edu/uiowa/tagUtil/browser/DateConversion.java -text
 src/main/java/edu/uiowa/tagUtil/csv/CSVEmitter.java -text
 src/main/java/edu/uiowa/tagUtil/filter/BlankLineFilter.java -text
 src/main/java/edu/uiowa/tagUtil/filter/WhiteSpaceFilter.java -text
+src/main/java/edu/uiowa/tagUtil/grantParser/NIHGrantParser.java -text
 src/main/java/edu/uiowa/tagUtil/grantParser/nih.java -text
 src/main/java/edu/uiowa/tagUtil/hashTag/HashEntry.java -text
 src/main/java/edu/uiowa/tagUtil/hashTag/HashSize.java -text

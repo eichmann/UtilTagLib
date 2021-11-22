@@ -230,6 +230,24 @@
         <body-content>empty</body-content>
     </tag>
 
+    <tag>
+        <name>NIHGrantParser</name>
+        <tag-class>edu.uiowa.tagUtil.grantParser.NIHGrantParser</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>grantNumber</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>component</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
     <function>
         <name>keyExists</name>
         <function-class>edu.uiowa.tagUtil.hashTag.HashTag</function-class>
