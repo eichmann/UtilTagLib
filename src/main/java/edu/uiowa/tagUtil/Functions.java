@@ -1,11 +1,11 @@
 package edu.uiowa.tagUtil;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
 
 /**
@@ -14,8 +14,8 @@ import org.jsoup.Jsoup;
  * $Date$: Date of last commit
  */
 public class Functions {
-    static Logger logger = LogManager.getLogger(Functions.class);
-
+	static Logger logger = LogManager.getLogger(Functions.class);
+    
 	public static void main( String[] args ) {
 		System.out.println( capitalize( "hello world." ) );
 	}

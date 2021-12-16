@@ -14,12 +14,12 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("serial")
 public class PropertyValue extends TagSupport {
-	public static final Log log = LogFactory.getLog(PropertyValue.class);
+	static Logger logger = LogManager.getLogger(PropertyValue.class);
 	
     String theURI = null;
     String propertyFile = null;
@@ -50,7 +50,7 @@ public class PropertyValue extends TagSupport {
 	if (propertyFile != null) {
 	    if (!propertyFile.endsWith(".properties"))
 		propertyFile += ".properties";
-	    log.trace("propertyFile: " + propertyFile);
+	    logger.trace("propertyFile: " + propertyFile);
 	} else {
 	    // Note the misspelling of the actual header string value...
 	    theURI = ((HttpServletRequest) pageContext.getRequest()).getRequestURI();
@@ -59,11 +59,11 @@ public class PropertyValue extends TagSupport {
 		propertyFile = "";
 	    else
 		propertyFile = theURI.substring(1, theURI.indexOf('/', 1)) + ".properties";
-	    log.trace("servletPath: " + thePath);
+	    logger.trace("servletPath: " + thePath);
 	}
         
         properties = PropertyLoader.loadProperties(propertyFile);
-        log.trace("theURI: " + theURI + "\tpropertyValue:" + propertyValue + "\t" + pageContext.getRequest().getServerName() + "\t" + pageContext.getRequest().getServerPort());
+        logger.trace("theURI: " + theURI + "\tpropertyValue:" + propertyValue + "\t" + pageContext.getRequest().getServerName() + "\t" + pageContext.getRequest().getServerPort());
     }
     
     public String getTheURI() {

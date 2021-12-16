@@ -3,21 +3,20 @@ package edu.uiowa.tagUtil.hashTag;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("serial")
 public class HashEntry extends TagSupport {
-
-    private static final Log log = LogFactory.getLog(HashEntry.class);
+	static Logger logger = LogManager.getLogger(HashEntry.class);
 
     String key = null;
     String value = null;
 
     public int doStartTag() throws JspException {
 	HashTag hashTag = (HashTag)findAncestorWithClass(this, HashTag.class);
-	log.debug("hashTag: " + hashTag);
-	log.debug("HashTag entry: " + key +  " : " + value);
+	logger.debug("hashTag: " + hashTag);
+	logger.debug("HashTag entry: " + key +  " : " + value);
 	hashTag.addEntry(key, value);
 
 	return EVAL_PAGE;

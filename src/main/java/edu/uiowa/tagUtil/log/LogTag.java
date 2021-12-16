@@ -2,13 +2,12 @@ package edu.uiowa.tagUtil.log;
 
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("serial")
 public class LogTag extends BodyTagSupport {
-	
-	public static final Log log = LogFactory.getLog(LogTag.class);
+	static Logger logger = LogManager.getLogger(LogTag.class);
 	
 	private static final String DEBUG = "DEBUG";
 	private static final String INFO = "INFO";
@@ -22,11 +21,11 @@ public class LogTag extends BodyTagSupport {
 	public int doStartTag(){
 		
 		if( DEBUG.equalsIgnoreCase(level) ){
-			log.debug( page + ":" + line + " - " + message );
+			logger.debug( page + ":" + line + " - " + message );
 		} else if( INFO.equalsIgnoreCase(level) ) {
-			log.info( page + ":" + line + " - " + message );
+			logger.info( page + ":" + line + " - " + message );
 		} else if( ERROR.equalsIgnoreCase(level) ){
-			log.error( page + ":" + line + " - " + message );
+			logger.error( page + ":" + line + " - " + message );
 		}
 		
 		clear();

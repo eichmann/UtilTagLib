@@ -15,12 +15,12 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.sql.DataSource;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("serial")
 public class CSVEmitter extends TagSupport {
-	private static final Log log = LogFactory.getLog(CSVEmitter.class);
+	static Logger logger = LogManager.getLogger(CSVEmitter.class);
 
 	protected DataSource theDataSource = null;
 	protected Connection theConnection = null;
@@ -29,7 +29,7 @@ public class CSVEmitter extends TagSupport {
 	String table = null;
 
 	public int doStartTag() throws JspException {
-		log.info("dataSource: " + dataSource + "\tschema: " + schema + "\ttable: " + table);
+		logger.info("dataSource: " + dataSource + "\tschema: " + schema + "\ttable: " + table);
 		try {
 			theConnection = getConnection();
 			DatabaseMetaData metadata = theConnection.getMetaData();
@@ -39,7 +39,7 @@ public class CSVEmitter extends TagSupport {
 				String name = resultSet.getString("COLUMN_NAME");
 				String type = resultSet.getString("TYPE_NAME");
 				int size = resultSet.getInt("COLUMN_SIZE");
-				log.info("\tcolumn name: [" + name + "]; type: [" + type + "]; size: [" + size + "]");
+				logger.info("\tcolumn name: [" + name + "]; type: [" + type + "]; size: [" + size + "]");
 				pageContext.getOut().print((first ? "" : ",") + name);
 				first = false;
 			}
@@ -72,7 +72,7 @@ public class CSVEmitter extends TagSupport {
 				pageContext.getOut().print("\n");
 			}
 		} catch (SQLException | IOException e) {
-			log.error("Error in database initialization", e);
+			logger.error("Error in database initialization", e);
 		}
 		return SKIP_PAGE;
 	}
@@ -118,7 +118,7 @@ public class CSVEmitter extends TagSupport {
 			try {
 				theDataSource = (DataSource) new InitialContext().lookup("java:/comp/env/jdbc/" + getDataSource());
 			} catch (Exception e) {
-				log.error("Error in database initialization", e);
+				logger.error("Error in database initialization", e);
 			}
 
 		return theDataSource;
@@ -136,7 +136,7 @@ public class CSVEmitter extends TagSupport {
 				theConnection.close();
 			theConnection = null;
 		} catch (SQLException e) {
-			log.error("JDBC error freeing connection", e);
+			logger.error("JDBC error freeing connection", e);
 			theConnection = null;
 			throw new JspTagException("Error: JDBC error freeing connection");
 		}

@@ -6,17 +6,16 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("serial")
 public class HashTag extends TagSupport {
-
-    private static final Log log = LogFactory.getLog(HashTag.class);
+	static Logger logger = LogManager.getLogger(HashTag.class);
     static HashTag currentHashTag = null;
 
     public static Boolean keyExists (String ID) throws JspTagException {
-	log.debug("containing tag: " + currentHashTag + " : " + ID);
+	logger.debug("containing tag: " + currentHashTag + " : " + ID);
 	if (ID == null)
 		return false;
 	return currentHashTag.cache.containsKey(ID);
@@ -28,7 +27,7 @@ public class HashTag extends TagSupport {
     public int doStartTag() throws JspException {
 	currentHashTag = this;
 	cache = new Hashtable<String, String>();
-	log.debug("Hashtable initialized: " + cacheName);
+	logger.debug("Hashtable initialized: " + cacheName);
 	pageContext.setAttribute(cacheName, cache);
 
 	return EVAL_PAGE;
@@ -48,7 +47,7 @@ public class HashTag extends TagSupport {
     }
     
     public void addEntry(String key, String value) {
-	log.debug("addEntry: " + cache + " : " + key + " : " + value);
+	logger.debug("addEntry: " + cache + " : " + key + " : " + value);
 	cache.put(key, (value == null ? key : value));
     }
 

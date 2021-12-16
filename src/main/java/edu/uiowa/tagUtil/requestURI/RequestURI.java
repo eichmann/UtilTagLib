@@ -5,8 +5,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * @author rrlorent
@@ -14,14 +14,14 @@ import org.apache.commons.logging.LogFactory;
 public class RequestURI extends TagSupport {
 
 	private static final long serialVersionUID = 6694236545114396133L;
-	private static final Log log = LogFactory.getLog(RequestURI.class);
+	static Logger logger = LogManager.getLogger(RequestURI.class);
 	
 	public int doStartTag(){
 		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
 		try {
 			pageContext.getOut().print( request.getRequestURI() );
 		} catch (IOException e) {
-			log.error("error getting request URI",e);
+			logger.error("error getting request URI",e);
 		}
 		return EVAL_PAGE;
 	}

@@ -5,12 +5,12 @@ import java.io.IOException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("serial")
 public class NIHGrantParser extends TagSupport {
-	public static final Log log = LogFactory.getLog(NIHGrantParser.class);
+	static Logger logger = LogManager.getLogger(NIHGrantParser.class);
 
 	String grantNumber = null;
 	String component = null;

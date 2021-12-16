@@ -14,14 +14,14 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import edu.uiowa.tagUtil.property.PropertyLoader;
 
 @SuppressWarnings("serial")
 public class ApplicationRoot extends TagSupport {
-    public static final Log log = LogFactory.getLog(ApplicationRoot.class);
+	static Logger logger = LogManager.getLogger(ApplicationRoot.class);
     static boolean propertyLoadAttempted = false;
     static Properties properties = null;
     static String container = null;
@@ -33,15 +33,15 @@ public class ApplicationRoot extends TagSupport {
 	if (properties != null || propertyLoadAttempted)
 	    return;
 	propertyLoadAttempted = true;
-	log.info("loading " + applicationName + ".properties");
+	logger.info("loading " + applicationName + ".properties");
 	try {
 	    properties = PropertyLoader.loadProperties(applicationName + ".properties");
 	} catch (Exception e) {
-	    log.info("load failed: " + applicationName + ".properties");
+	    logger.info("load failed: " + applicationName + ".properties");
 	}
 	if (properties != null) {
 	    container = properties.getProperty("applicationRoot", null);
-	    log.info("container: " + container);
+	    logger.info("container: " + container);
 	}
     }
 
@@ -57,9 +57,9 @@ public class ApplicationRoot extends TagSupport {
 	if (container != null)
 	    applicationRoot = container;
 
-	log.trace("theURI: " + theURI + "\tapplicationRoot:" + applicationRoot + "\t" + pageContext.getRequest().getServerName() + "\t"
+	logger.trace("theURI: " + theURI + "\tapplicationRoot:" + applicationRoot + "\t" + pageContext.getRequest().getServerName() + "\t"
 		+ pageContext.getRequest().getServerPort());
-	log.trace("servletPath: " + thePath);
+	logger.trace("servletPath: " + thePath);
 	try {
 	    pageContext.getOut().print(applicationRoot);
 	} catch (IOException e) {

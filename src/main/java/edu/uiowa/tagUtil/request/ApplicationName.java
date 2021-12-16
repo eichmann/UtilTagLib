@@ -13,12 +13,12 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("serial")
 public class ApplicationName extends TagSupport {
-	public static final Log log = LogFactory.getLog(ApplicationRoot.class);
+	static Logger logger = LogManager.getLogger(ApplicationName.class);
 	
     String theURI = null;
     String applicationName = null;
@@ -32,8 +32,8 @@ public class ApplicationName extends TagSupport {
         else
             applicationName = theURI.substring(1, theURI.indexOf('/', 1));
 
-        log.trace("theURI: " + theURI + "\tapplicationName:" + applicationName + "\t" + pageContext.getRequest().getServerName() + "\t" + pageContext.getRequest().getServerPort());
-        log.trace("servletPath: " + thePath);
+        logger.trace("theURI: " + theURI + "\tapplicationName:" + applicationName + "\t" + pageContext.getRequest().getServerName() + "\t" + pageContext.getRequest().getServerPort());
+        logger.trace("servletPath: " + thePath);
         try {
             pageContext.getOut().print(applicationName);
         } catch (IOException e) {
