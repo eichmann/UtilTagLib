@@ -51,9 +51,10 @@ public class ApplicationRoot extends TagSupport {
 	String thePath = ((HttpServletRequest) pageContext.getRequest()).getServletPath();
 	if (theURI.equals(thePath) || theURI.length() < 2)
 	    applicationRoot = "";
-	else
+	else {
 	    applicationRoot = theURI.substring(0, theURI.indexOf('/', 1));
-	loadProperties(applicationRoot.substring(1));
+	    loadProperties(applicationRoot.substring(1));
+	}
 	if (container != null)
 	    applicationRoot = container;
 
