@@ -14,22 +14,22 @@ public class WaitToTake {
 	static final String host = null;
 
 	public static void main(String[] args) throws TupleSpaceException {
-		logger.info("waiting on: " + args[1] + " : " + args[2] + " : " + args[3] + (args.length > 4 ? "\tvalue: " + args[4] : ""));
+		logger.info("waiting on: " + args[0] + " : " + args[1] + " : " + args[2] + (args.length > 3 ? "\tvalue: " + args[3] : ""));
 
-		ts = new TupleSpace(args[2], args[1]);
+		ts = new TupleSpace(args[1], args[0]);
 
-		if (args.length > 4) {
-				Tuple theTuple = ts.waitToTake(args[3] , new Field(String.class));
+		if (args.length > 3) {
+				Tuple theTuple = ts.waitToTake(args[2] , new Field(String.class));
 				if (theTuple != null) {
-					String value = (String) theTuple.getField(1).getValue();
-					logger.info("consuming " + args[3]  + "\t" +  value);
+					String value = (String) theTuple.getField(0).getValue();
+					logger.info("consuming " + args[2]  + "\t" +  value);
 				} else  {
 					
 				}
 		} else  {
-			Tuple theTuple = ts.waitToTake(args[3]);
+			Tuple theTuple = ts.waitToTake(args[2]);
 			if (theTuple != null) {
-				logger.info("consuming " + args[3]);
+				logger.info("consuming " + args[2]);
 			} else  {
 				
 			}			

@@ -12,14 +12,14 @@ public class Write {
 	static final String host = null;
 
 	public static void main(String[] args) throws TupleSpaceException {
-		logger.info("writing: " + args[1] + " : " + args[2] + " : " + args[3] + (args.length > 4 ? "\tvalue: " + args[4] : ""));
+		logger.info("writing: " + args[0] + " : " + args[1] + " : " + args[2] + (args.length > 3 ? "\tvalue: " + args[3] : ""));
 
-		ts = new TupleSpace(args[2], args[1]);
+		ts = new TupleSpace(args[1], args[0]);
 
-		if (args.length > 4) {
-			ts.write(args[3], args[4]);
+		if (args.length > 3) {
+			ts.write(args[2], args[3]);
 		} else  {
-			ts.write(args[3]);
+			ts.write(args[2]);
 		}
 	}
 
