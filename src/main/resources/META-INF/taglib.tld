@@ -251,7 +251,7 @@
     <function>
         <name>keyExists</name>
         <function-class>edu.uiowa.tagUtil.hashTag.HashTag</function-class>
-        <function-signature>java.lang.Boolean keyExists(java.lang.String)</function-signature>
+        <function-signature>java.lang.Boolean keyExists(javax.servlet.jsp.PageContext, java.lang.String, java.lang.String)</function-signature>
     </function>
     
 	<function>

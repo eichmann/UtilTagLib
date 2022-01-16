@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import org.apache.logging.log4j.LogManager;
@@ -14,13 +15,16 @@ public class HashTag extends TagSupport {
 	static Logger logger = LogManager.getLogger(HashTag.class);
     static HashTag currentHashTag = null;
 
-    public static Boolean keyExists (String ID) throws JspTagException {
-	logger.debug("containing tag: " + currentHashTag + " : " + ID);
-	if (ID == null)
-		return false;
-	return currentHashTag.cache.containsKey(ID);
+    @SuppressWarnings("unchecked")
+	public static Boolean keyExists(PageContext context, String cacheName, String ID) throws JspTagException {
+    	Hashtable<String, String> cache = (Hashtable<String, String>) context.getAttribute(cacheName);
+    	if (cache == null) {
+    		logger.error("checking on hash entry on non-existant hash: " + cacheName);
+    		return false;
+    	}
+    	return cache.containsKey(ID);
     }
-
+    
     String cacheName = null;
     Hashtable<String, String> cache = null;
 
