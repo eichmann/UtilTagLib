@@ -30,6 +30,10 @@ public class CSVEmitter extends TagSupport {
 
 	public int doStartTag() throws JspException {
 		logger.info("dataSource: " + dataSource + "\tschema: " + schema + "\ttable: " + table);
+		if (!schema.matches("[a-zA-Z][a-zA-Z0-9_]*"))
+			throw new JspException("Illegal character in schema name.");
+		if (!table.matches("[a-zA-Z][a-zA-Z0-9_]*"))
+			throw new JspException("Illegal character in table name.");
 		try {
 			theConnection = getConnection();
 			DatabaseMetaData metadata = theConnection.getMetaData();
