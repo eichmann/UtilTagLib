@@ -2,6 +2,9 @@ package edu.uiowa.tagUtil;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +21,22 @@ public class Functions {
     
 	public static void main( String[] args ) {
 		System.out.println( capitalize( "hello world." ) );
+	}
+	
+	public static String hostname() {
+		try {
+			return InetAddress.getLocalHost().getHostName();
+		} catch (UnknownHostException e) {
+			return "unknown";
+		}
+	}
+	
+	public static Boolean isDomain(String domain) {
+		return hostname().endsWith(domain);
+	}
+	
+	public static Boolean isHost(String host) {
+		return hostname().startsWith(host);
 	}
 
 	/**
