@@ -180,6 +180,12 @@
         <name>markdown2html</name>
         <tag-class>edu.uiowa.tagUtil.html.Markdown2html</tag-class>
         <body-content>JSP</body-content>
+
+		<attribute>
+			<name>offset</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
     </tag>
 
     <tag>

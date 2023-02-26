@@ -10,6 +10,7 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import com.github.rjeschke.txtmark.Processor;
 
 public class Markdown2html extends BodyTagSupport {
+	int offset = 0;
     /**
      * Comment for <code>serialVersionUID</code>
      */
@@ -25,7 +26,7 @@ public class Markdown2html extends BodyTagSupport {
 	    String bodyString = bodyContent.getString();
 	    JspWriter out = bodyContent.getEnclosingWriter();
 
-	    out.print(Processor.process("[$PROFILE$]: extended\n"+bodyString, new GitDecorator()));
+	    out.print(Processor.process("[$PROFILE$]: extended\n"+bodyString, new GitDecorator(offset)));
 
 	    bodyContent.clear(); // empty buffer for next evaluation
 	} catch (IOException e) {
@@ -34,5 +35,13 @@ public class Markdown2html extends BodyTagSupport {
 
 	return SKIP_BODY;
     }
+
+	public int getOffset() {
+		return offset;
+	}
+
+	public void setOffset(int offset) {
+		this.offset = offset;
+	}
 
 }
