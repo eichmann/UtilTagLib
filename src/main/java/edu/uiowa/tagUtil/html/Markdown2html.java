@@ -1,40 +1,55 @@
 package edu.uiowa.tagUtil.html;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
-import com.github.rjeschke.txtmark.Processor;
+import com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughExtension;
+import com.vladsch.flexmark.ext.tables.TablesExtension;
+import com.vladsch.flexmark.html.HtmlRenderer;
+import com.vladsch.flexmark.parser.Parser;
+import com.vladsch.flexmark.util.data.MutableDataSet;
 
 public class Markdown2html extends BodyTagSupport {
+	private static final long serialVersionUID = 1L;
 	int offset = 0;
-    /**
-     * Comment for <code>serialVersionUID</code>
-     */
-    private static final long serialVersionUID = 1L;
 
-    public void setBodyContent(BodyContent bc) {
-	super.setBodyContent(bc);
-    }
+	// initialize the markdown engine
 
-    public int doAfterBody() throws JspTagException {
-	try {
-	    BodyContent bodyContent = super.getBodyContent();
-	    String bodyString = bodyContent.getString();
-	    JspWriter out = bodyContent.getEnclosingWriter();
+	MutableDataSet options = null;;
+	Parser parser = null;
+	HtmlRenderer renderer = null;
 
-	    out.print(Processor.process("[$PROFILE$]: extended\n"+bodyString, new GitDecorator(offset)));
+	{
+		options = new MutableDataSet();
+		options.set(Parser.EXTENSIONS, Arrays.asList(TablesExtension.create(), StrikethroughExtension.create()));
+		parser = Parser.builder(options).build();
+		renderer = HtmlRenderer.builder(options).build();
+	}
 
-	    bodyContent.clear(); // empty buffer for next evaluation
-	} catch (IOException e) {
-	    throw new JspTagException("Error in Unicode2html: " + e.getMessage(), e);
-	} // end of catch
+	public void setBodyContent(BodyContent bc) {
+		super.setBodyContent(bc);
+	}
 
-	return SKIP_BODY;
-    }
+	public int doAfterBody() throws JspTagException {
+		try {
+			BodyContent bodyContent = super.getBodyContent();
+			String bodyString = bodyContent.getString();
+			JspWriter out = bodyContent.getEnclosingWriter();
+
+			out.print(renderer.render(parser.parse(bodyString)));
+
+			bodyContent.clear(); // empty buffer for next evaluation
+		} catch (IOException e) {
+			throw new JspTagException("Error in Unicode2html: " + e.getMessage(), e);
+		} // end of catch
+
+		return SKIP_BODY;
+	}
 
 	public int getOffset() {
 		return offset;
