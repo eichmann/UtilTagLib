@@ -50,6 +50,9 @@ public class ApplicationRoot extends TagSupport {
 			if (((HttpServletRequest) pageContext.getRequest()).getContextPath().equals("")) {
 				logger.info("setting container to ROOT");
 				container = "";
+			} else {
+				container = ((HttpServletRequest) pageContext.getRequest()).getContextPath();
+				logger.info("setting container to " + container);				
 			}
 		}
 	}
