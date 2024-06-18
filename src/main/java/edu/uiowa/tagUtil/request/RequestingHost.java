@@ -7,6 +7,7 @@
 package edu.uiowa.tagUtil.request;
 
 import java.io.IOException;
+import java.net.InetAddress;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
@@ -15,6 +16,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class RequestingHost extends TagSupport {
+	String mode = null;
     String theHost = null;
 
     public int doStartTag() throws JspTagException {
@@ -26,11 +28,16 @@ public class RequestingHost extends TagSupport {
 
         //System.out.println("theURI: " + theURI + "\tapplicationPath: " + applicationPath);
         try {
+            if (mode != null && mode.toLowerCase().equals("domain-name")) {
+            	InetAddress addr = InetAddress.getByAddress(theHost, getBytes(theHost));
+            	theHost = addr.getCanonicalHostName();
+            }
+            
             pageContext.getOut().print(theHost);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            throw new JspTagException("Error generating application root.");
+            throw new JspTagException("Error generating requesting host.");
         }
 
         return SKIP_BODY;
@@ -41,7 +48,25 @@ public class RequestingHost extends TagSupport {
         return super.doEndTag();
     }
     
-    public String getTheHost() {
+    byte[] getBytes(String theAddress) {
+    	String[] octetArray = theAddress.split("\\.");
+    	assert octetArray.length == 4;
+    	byte[] ipAddressBytes = new byte[4];
+    	for (int i = 0; i < 4; ++i) {
+    	    ipAddressBytes[i] = Integer.valueOf(octetArray[i]).byteValue();
+    	}
+    	return ipAddressBytes;
+    }
+    
+    public String getMode() {
+		return mode;
+	}
+
+	public void setMode(String mode) {
+		this.mode = mode;
+	}
+
+	public String getTheHost() {
         return theHost;
     }
 
